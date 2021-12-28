@@ -32,7 +32,33 @@
               </div>
             </div>
           </div>
+          {% for carousel_product in carousel_products %}
           <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>
+                      Welcome to our shop
+                    </h1>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                    </p>
+                    <a href="">
+                      Read More
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{{carousel_product.product_image.url}}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- <div class="carousel-item">
             <div class="container ">
               <div class="row">
                 <div class="col-md-6">
@@ -55,31 +81,7 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="detail-box">
-                    <h1>
-                      Welcome to our shop
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
-                    </p>
-                    <a href="">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="{% static 'images/slider-img.png' %}" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div> -->
         </div>
         <div class="carousel_btn_box">
           <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">

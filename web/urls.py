@@ -1,5 +1,6 @@
 from django.urls import path
-from web.views import index, about, product, why, testimonial
+from product.views import product
+from web.views import index, about, why, testimonial
 
 
 app_name = 'web'

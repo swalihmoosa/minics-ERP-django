@@ -423,7 +423,8 @@ a:focus {
 
       img {
         height: 175px;
-        max-width: 100%;
+        width: 100%;
+        display: block;
       }
 
       .add_cart_btn {

@@ -349,9 +349,13 @@ a:focus {
   background-color: transparent;
   color: #f3c93e;
 }
+div.img-box{
+  width: 50%;
+}
 
 .slider_section .img-box img {
   width: 100%;
+  display: block;
 }
 
 .slider_section .carousel_btn_box {
@@ -433,7 +437,8 @@ a:focus {
 
 .product_section .box .img-box img {
   height: 175px;
-  max-width: 100%;
+  width: 100%;
+  display: block;
 }
 
 .product_section .box .img-box .add_cart_btn {
