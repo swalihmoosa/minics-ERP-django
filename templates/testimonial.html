@@ -36,20 +36,21 @@
                 </div>
                 <div class="client-id">
                   <div class="img-box">
-                    <img src="images/client.jpg" alt="">
+                    <img src="{% static 'images/client.jpg' %}" alt="">
                   </div>
                   <div class="name">
                     <h5>
-                      James Dew
+                      AKIRA JURO
                     </h5>
                     <h6>
-                      Photographer
+                      WRITER
                     </h6>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          {% for customer in customers %}
           <div class="carousel-item">
             <div class="container">
               <div class="box">
@@ -58,62 +59,27 @@
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                   </p>
                   <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                    long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                    {{customer.testimonial}}
                   </p>
                 </div>
                 <div class="client-id">
                   <div class="img-box">
-                    <img src="images/client.jpg" alt="">
+                    <img src="{{customer.customer_image.url}}" alt="">
                   </div>
                   <div class="name">
                     <h5>
-                      James Dew
+                      {{customer.customer_name}}
                     </h5>
                     <h6>
-                      Photographer
+                      {{customer.customer_job}}
                     </h6>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="container">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    <i class="fa fa-quote-left" aria-hidden="true"></i>
-                  </p>
-                  <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                    long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look
-                  </p>
-                </div>
-                <div class="client-id">
-                  <div class="img-box">
-                    <img src="images/client.jpg" alt="">
-                  </div>
-                  <div class="name">
-                    <h5>
-                      James Dew
-                    </h5>
-                    <h6>
-                      Photographer
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
+          
         </div>
         <div class="carousel_btn-box">
           <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">

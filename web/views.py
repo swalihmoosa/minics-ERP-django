@@ -27,4 +27,9 @@ def why(request):
 
 
 def testimonial(request):
-    return render(request, 'testimonial.html')
+    customers = Customer.objects.all()
+
+    context = {
+        "customers" : customers
+    }
+    return render(request, 'testimonial.html', context=context)
