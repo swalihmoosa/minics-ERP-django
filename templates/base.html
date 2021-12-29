@@ -188,8 +188,9 @@
             <h5>
               Newsletter
             </h5>
-            <form action="">
-              <input type="email" placeholder="Enter your email">
+            <form action="subscribe/" method="post" class="subscribe">
+              {% csrf_token %}
+              {{subscribe_form.email}}
               <button>
                 Subscribe
               </button>

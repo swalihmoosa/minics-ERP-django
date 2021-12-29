@@ -349,8 +349,9 @@ a:focus {
   background-color: transparent;
   color: #f3c93e;
 }
-div.img-box{
-  width: 50%;
+.slider_section .img-box{
+  width: 60%;
+  margin: 0 auto;
 }
 
 .slider_section .img-box img {
@@ -437,8 +438,7 @@ div.img-box{
 
 .product_section .box .img-box img {
   height: 175px;
-  width: 100%;
-  display: block;
+  max-width: 100%;
 }
 
 .product_section .box .img-box .add_cart_btn {

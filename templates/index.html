@@ -58,30 +58,6 @@
             </div>
           </div>
           {% endfor %}
-          <!-- <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="detail-box">
-                    <h1>
-                      Welcome to our shop
-                    </h1>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
-                    </p>
-                    <a href="">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="img-box">
-                    <img src="{% static 'images/slider-img.png' %}" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
         <div class="carousel_btn_box">
           <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
@@ -258,7 +234,7 @@
     <div class="client_container ">
       <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          {% for customer in customers %}
+          {% for carousel_customer in carousel_customers %}
           <div class="carousel-item active">
             <div class="container">
               <div class="box">
@@ -267,19 +243,19 @@
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                   </p>
                   <p>
-                    {{customer.testimonial}}
+                    {{carousel_customer.testimonial}}
                   </p>
                 </div>
                 <div class="client-id">
                   <div class="img-box">
-                    <img src="{{customer.customer_image.url}}" alt="">
+                    <img src="{{carousel_customer.customer_image.url}}" alt="">
                   </div>
                   <div class="name">
                     <h5>
-                      {{customer.customer_name}}
+                      {{carousel_customer.customer_name}}
                     </h5>
                     <h6>
-                      {{customer.customer_job}}
+                      {{carousel_customer.customer_job}}
                     </h6>
                   </div>
                 </div>
