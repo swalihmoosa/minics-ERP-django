@@ -13,3 +13,7 @@ def product(request):
     return render(request, 'product.html', context=context)
 
 
+def cart(request):
+    return render(request, 'cart.html')
+
+
