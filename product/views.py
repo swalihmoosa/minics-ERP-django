@@ -20,8 +20,9 @@ def cart(request):
 def add_to_cart(request,pk):
     cart_product = ProductItem.objects.get(pk=pk)
 
-    print("###############################################****************************************",cart_product)
+    Cart.objects.create(
+        product_name = cart_product.product_name, product_price = cart_product.product_price, product_image = cart_product.product_image
+    )
 
-
-    return render(request, 'cart.html')
+    return redirect('/')
 
