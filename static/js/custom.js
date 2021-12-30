@@ -60,12 +60,12 @@ $(document).ready(function(){
         count = count + 1
         document.getElementById("count").value = count
         document.getElementById("total").value = count * product_price
-        console.log(product_price);
     })
 
     $(minus).on('click', function(){
         count = count - 1
         document.getElementById("count").value = count
+        document.getElementById("total").value = count * product_price
     })
 
 })
