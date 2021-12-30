@@ -19,16 +19,16 @@
             <div class="_column product-info">
               <h4 class="product-name">{{cart_product.product_name}}</h4>
               <p class="product-desc"></p>
-              <div class="price product-single-price">${{cart_product.product_price}}</div>
+              <input class="price product-single-price" id="product_price" value="{{cart_product.product_price}}" readonly/>
             </div>
             <div class="_column product-modifiers">
               <div class="_grid">
                 <button class="_btn _column product-subtract" id="minus">&minus;</button>
-                <input class="_column product-qty" id="count" value="1" />
+                <input class="_column product-qty" id="count" value=1 name="{{cart_product.pk}}"/>
                 <button class="_btn _column product-plus" id="plus">&plus;</button>
               </div>
               <button class="_btn entypo-trash product-remove">Remove</button>
-              <div class="price product-total-price">$0.00</div>
+              <input class="price product-total-price" id="total" value="0.00" readonly/>
             </div>
           </li>
         {% endfor %}

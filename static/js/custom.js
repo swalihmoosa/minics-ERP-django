@@ -46,21 +46,27 @@ $(document).ready(function(){
         })
     })
 
-
     count = parseInt(document.getElementById("count").value)
+    total = parseInt(document.getElementById("total").value)
+    product_price = parseInt(document.getElementById("product_price").value)
+
+    pk = document.getElementById("count").name
     plus = document.getElementById("plus")
     minus = document.getElementById("minus")
 
-
+    document.getElementById("total").value = count * product_price
+    
     $(plus).on('click', function(){
         count = count + 1
         document.getElementById("count").value = count
-        console.log(count);
+        document.getElementById("total").value = count * product_price
+        console.log(product_price);
     })
 
     $(minus).on('click', function(){
         count = count - 1
         document.getElementById("count").value = count
     })
+
 })
 

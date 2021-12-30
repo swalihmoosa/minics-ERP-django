@@ -101,6 +101,8 @@ h1, .sub-heading {
 .product-single-price {
   margin-top: -1rem;
   font-size: 2.4em;
+  background: transparent;
+  border: 0;
 }
 
 /**
@@ -115,7 +117,7 @@ h1, .sub-heading {
 .product-subtract,
 .product-plus,
 .product-qty {
-  width: 33.330557%;
+  width: 33%;
   background-color: transparent;
   color: #686868;
   text-align: center;
@@ -145,6 +147,7 @@ h1, .sub-heading {
   color: #95a5a6;
   font-size: 1.25em;
   padding: .5rem;
+  width: 100%;
 }
 .shopping-cart--list-item:hover .product-total-price {
   background-color: #3498db;
