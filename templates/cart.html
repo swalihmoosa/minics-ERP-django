@@ -10,26 +10,28 @@
   
     <section class="shopping-cart">
       <ol class="ui-list shopping-cart--list" id="shopping-cart--list">
-  
+
+        {% for cart_product in cart_products %}
           <li class="_grid shopping-cart--list-item">
             <div class="_column product-image">
-              <img class="product-image--img" src="" alt="Item image" />
+              <img class="product-image--img" src="{{cart_product.product_image.url}}" alt="Item image" />
             </div>
             <div class="_column product-info">
-              <h4 class="product-name"></h4>
+              <h4 class="product-name">{{cart_product.product_name}}</h4>
               <p class="product-desc"></p>
-              <div class="price product-single-price"></div>
+              <div class="price product-single-price">${{cart_product.product_price}}</div>
             </div>
             <div class="_column product-modifiers">
               <div class="_grid">
-                <button class="_btn _column product-subtract">&minus;</button>
-                <div class="_column product-qty">0</div>
-                <button class="_btn _column product-plus">&plus;</button>
+                <button class="_btn _column product-subtract" id="minus">&minus;</button>
+                <input class="_column product-qty" id="count" value="1" />
+                <button class="_btn _column product-plus" id="plus">&plus;</button>
               </div>
               <button class="_btn entypo-trash product-remove">Remove</button>
               <div class="price product-total-price">$0.00</div>
             </div>
           </li>
+        {% endfor %}
   
       </ol>
   

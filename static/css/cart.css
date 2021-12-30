@@ -72,16 +72,13 @@ h1, .sub-heading {
   border-color: #3498db;
 }
 .shopping-cart--list-item > ._column {
-    height: 100%; /* make vertical lines match */
+    height: 100%;
 }
 
-/**
- * @section: product-image;
- * @extends: _column;
- */
 .product-image {
   width: 16.663198%;
   background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") no-repeat center / cover transparent;
+  padding: 5%;
 }
 
 /**
@@ -208,4 +205,8 @@ h1, .sub-heading {
   transition: all .5s ease;
   transform: translate3d(0, -100%, 0);
   opacity: 0;
+}
+img{
+  width: 100%;
+  display: block;
 }

@@ -45,4 +45,22 @@ $(document).ready(function(){
             }
         })
     })
+
+
+    count = parseInt(document.getElementById("count").value)
+    plus = document.getElementById("plus")
+    minus = document.getElementById("minus")
+
+
+    $(plus).on('click', function(){
+        count = count + 1
+        document.getElementById("count").value = count
+        console.log(count);
+    })
+
+    $(minus).on('click', function(){
+        count = count - 1
+        document.getElementById("count").value = count
+    })
 })
+

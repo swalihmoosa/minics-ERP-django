@@ -7,14 +7,20 @@ def product(request):
     products = ProductItem.objects.all()
 
     context = {
-        "products" : products
+        "products" : products,
     }
 
     return render(request, 'product.html', context=context)
 
 
 def cart(request):
-    return render(request, 'cart.html')
+    cart_products = Cart.objects.all()
+
+    context = {
+        "cart_products" : cart_products
+    }
+
+    return render(request, 'cart.html', context=context)
 
 
 def add_to_cart(request,pk):
