@@ -32,3 +32,11 @@ def add_to_cart(request,pk):
 
     return redirect('/')
 
+
+def remove(request,pk):
+    remove_item = Cart.objects.get(pk=pk)
+
+    remove_item.delete()
+
+    return redirect('/cart')
+
