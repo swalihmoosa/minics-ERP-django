@@ -1,7 +1,7 @@
 from django.urls import path
 from product.views import add_to_cart, product
 from web.views import index, about, subscribe, why, testimonial
-from product.views import cart, remove
+from product.views import cart, remove, add_count, minus_count
 
 
 app_name = 'web'
@@ -15,6 +15,8 @@ urlpatterns = [
     path('subscribe/', subscribe, name="subscribe"),
     path('cart/', cart, name="cart"),
     path('add_to_cart/<pk>', add_to_cart, name="add_to_cart"),
-    path('remove/<pk>', remove, name="remove")
+    path('remove/<pk>', remove, name="remove"),
+    path('add_count/<pk>', add_count, name="add_count"),
+    path('minus_count/<pk>', minus_count, name="minus_count")
 
 ]

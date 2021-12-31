@@ -48,46 +48,42 @@ $(document).ready(function(){
 
 })
 
-count = parseInt(document.getElementById("count").value)
-total = parseInt(document.getElementById("total").value)
-product_price = parseInt(document.getElementById("product_price").value)
+// count = parseInt(document.getElementById("count").value)
+// total = parseInt(document.getElementById("total").value)
+// product_price = parseInt(document.getElementById("product_price").value)
 
-pk = document.getElementById("count").name
-plus = document.getElementById("plus")
-minus = document.getElementById("minus")
+// pk = document.getElementById("count").name
+// plus = document.getElementById("plus")
+// minus = document.getElementById("minus")
 
-subtotal = parseInt(document.getElementById("subtotal").value)
-shipping = parseInt(document.getElementById("shipping").value)
-tax = parseInt(document.getElementById("tax").value)
-grant_total = parseInt(document.getElementById("grant_total").value)
+// subtotal = parseInt(document.getElementById("subtotal").value)
+// shipping = parseInt(document.getElementById("shipping").value)
+// tax = parseInt(document.getElementById("tax").value)
+// grant_total = parseInt(document.getElementById("grant_total").value)
 
-document.getElementById("total").value = count * product_price
-document.getElementById("subtotal").value = document.getElementById("total").value
-document.getElementById("tax").value = document.getElementById("total").value *6/100
-document.getElementById("grant_total").value = parseInt(document.getElementById("total").value) + parseInt(document.getElementById("shipping").value) + parseInt(document.getElementById("tax").value)
+// document.getElementById("total").value = count * product_price
+// document.getElementById("subtotal").value = document.getElementById("total").value
+// document.getElementById("tax").value = document.getElementById("total").value *6/100
+// document.getElementById("grant_total").value = parseInt(document.getElementById("total").value) + parseInt(document.getElementById("shipping").value) + parseInt(document.getElementById("tax").value)
 
-function plus_count(){
-    count = count + 1
-    document.getElementById("count").value = count
-    document.getElementById("total").value = count * product_price
-    document.getElementById("subtotal").value = document.getElementById("total").value
-    document.getElementById("tax").value = document.getElementById("total").value *6/100
-    document.getElementById("grant_total").value = parseInt(document.getElementById("total").value) + parseInt(document.getElementById("shipping").value) + parseInt(document.getElementById("tax").value)
-
-
-}
-
-function minus_count(){
-    count = count - 1
-    document.getElementById("count").value = count
-    document.getElementById("total").value = count * product_price
-    document.getElementById("subtotal").value = document.getElementById("total").value
-    document.getElementById("tax").value = document.getElementById("total").value *6/100
-    document.getElementById("grant_total").value = parseInt(document.getElementById("total").value) + parseInt(document.getElementById("shipping").value) + parseInt(document.getElementById("tax").value)
+// function plus_count(){
+//     count = count + 1
+//     document.getElementById("count").value = count
+//     document.getElementById("total").value = count * product_price
+//     document.getElementById("subtotal").value = document.getElementById("total").value
+//     document.getElementById("tax").value = document.getElementById("total").value *6/100
+//     document.getElementById("grant_total").value = parseInt(document.getElementById("total").value) + parseInt(document.getElementById("shipping").value) + parseInt(document.getElementById("tax").value)
 
 
-}
+// }
 
-// function add(){
-//     console.log("click plus");
+// function minus_count(){
+//     count = count - 1
+//     document.getElementById("count").value = count
+//     document.getElementById("total").value = count * product_price
+//     document.getElementById("subtotal").value = document.getElementById("total").value
+//     document.getElementById("tax").value = document.getElementById("total").value *6/100
+//     document.getElementById("grant_total").value = parseInt(document.getElementById("total").value) + parseInt(document.getElementById("shipping").value) + parseInt(document.getElementById("tax").value)
+
+
 // }

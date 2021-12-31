@@ -40,3 +40,22 @@ def remove(request,pk):
 
     return redirect('/cart')
 
+
+def add_count(request,pk):
+    add_count_product = Cart.objects.get(pk=pk)
+    add_count_product.product_count += 1
+    add_count_product.save()
+
+    print("##################################################3###############################",add_count_product)
+
+    return redirect('/cart')
+
+
+def minus_count(request,pk):
+    minus_count_product = Cart.objects.get(pk=pk)
+    minus_count_product.product_count -= 1
+    minus_count_product.save()
+
+    print("##################################################3###############################",minus_count_product)
+
+    return redirect('/cart')
