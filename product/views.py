@@ -16,6 +16,10 @@ def product(request):
 def cart(request):
     cart_products = Cart.objects.all()
 
+    for cart_product in cart_products:
+        cart_product.product_total = cart_product.product_price * cart_product.product_count 
+        cart_product.save()
+
     context = {
         "cart_products" : cart_products
     }

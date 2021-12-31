@@ -15,9 +15,10 @@ class ProductItem(models.Model):
 
 class Cart(models.Model):
     product_name = models.CharField(max_length=125)
-    product_price = models.CharField(max_length=125)
+    product_price = models.IntegerField(max_length=125)
     product_count = models.IntegerField(default=1)
     product_image = models.ImageField(upload_to="products/")
+    product_total = models.IntegerField(default=0)
 
     def __str__(self):
         return self.product_name

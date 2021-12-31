@@ -28,7 +28,7 @@
                 <a href="{% url 'web:add_count' pk=cart_product.pk %}" class="_btn _column product-plus" id="plus" >&plus;</a>
               </div>
               <a href="{% url 'web:remove' pk=cart_product.pk %}" class="_btn entypo-trash product-remove">Remove</a>
-              <input class="price product-total-price" id="total" value="0.00" readonly/>
+              <input class="price product-total-price" id="total" value="{{cart_product.product_total}}" readonly/>
             </div>
           </li>
         {% endfor %}
