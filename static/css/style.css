@@ -437,7 +437,7 @@ a:focus {
 }
 
 .product_section .box .img-box img {
-  height: 175px;
+  height: 100%;
   max-width: 100%;
 }
 
