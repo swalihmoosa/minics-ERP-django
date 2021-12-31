@@ -54,18 +54,36 @@ $(document).ready(function(){
     plus = document.getElementById("plus")
     minus = document.getElementById("minus")
 
+    subtotal = parseInt(document.getElementById("subtotal").value)
+    shipping = parseInt(document.getElementById("shipping").value)
+    tax = parseInt(document.getElementById("tax").value)
+    grant_total = parseInt(document.getElementById("grant_total").value)
+
     document.getElementById("total").value = count * product_price
+    document.getElementById("subtotal").value = document.getElementById("total").value
+    document.getElementById("tax").value = document.getElementById("total").value *6/100
+    document.getElementById("grant_total").value = parseInt(document.getElementById("total").value) + parseInt(document.getElementById("shipping").value) + parseInt(document.getElementById("tax").value)
     
     $(plus).on('click', function(){
         count = count + 1
         document.getElementById("count").value = count
         document.getElementById("total").value = count * product_price
+        document.getElementById("subtotal").value = document.getElementById("total").value
+        document.getElementById("tax").value = document.getElementById("total").value *6/100
+        document.getElementById("grant_total").value = parseInt(document.getElementById("total").value) + parseInt(document.getElementById("shipping").value) + parseInt(document.getElementById("tax").value)
+
+
     })
 
     $(minus).on('click', function(){
         count = count - 1
         document.getElementById("count").value = count
         document.getElementById("total").value = count * product_price
+        document.getElementById("subtotal").value = document.getElementById("total").value
+        document.getElementById("tax").value = document.getElementById("total").value *6/100
+        document.getElementById("grant_total").value = parseInt(document.getElementById("total").value) + parseInt(document.getElementById("shipping").value) + parseInt(document.getElementById("tax").value)
+
+
     })
 
 })
