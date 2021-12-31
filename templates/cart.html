@@ -23,9 +23,9 @@
             </div>
             <div class="_column product-modifiers">
               <div class="_grid">
-                <button class="_btn _column product-subtract" id="minus">&minus;</button>
-                <input class="_column product-qty" id="count" value=1 name="{{cart_product.pk}}"/>
-                <button class="_btn _column product-plus" id="plus">&plus;</button>
+                <button class="_btn _column product-subtract" id="minus" onclick="{minus_count()}">&minus;</button>
+                <input class="_column product-qty" id="count" value=1 name="{{cart_product.pk}}"readonly/>
+                <button class="_btn _column product-plus" id="plus" onclick="{plus_count()}">&plus;</button>
               </div>
               <a href="{% url 'web:remove' pk=cart_product.pk %}" class="_btn entypo-trash product-remove">Remove</a>
               <input class="price product-total-price" id="total" value="0.00" readonly/>
