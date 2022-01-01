@@ -38,19 +38,19 @@
       <footer class="_grid cart-totals">
         <div class="_column subtotal" id="subtotalCtr">
           <div class="cart-totals-key" >Subtotal</div>
-          <input class="cart-totals-value" id="subtotal" value="0.00" readonly />
+          <input class="cart-totals-value" id="subtotal" value="{{sub_total}}" readonly />
         </div>
         <div class="_column shipping" id="shippingCtr">
           <div class="cart-totals-key">Shipping</div>
-          <input class="cart-totals-value" id="shipping" value="30" readonly/>
+          <input class="cart-totals-value" id="shipping" value="{{shipping}}" readonly/>
         </div>
         <div class="_column taxes" id="taxesCtr">
           <div class="cart-totals-key">Taxes (6%)</div>
-          <input class="cart-totals-value" id="tax" value="0.00" readonly/>
+          <input class="cart-totals-value" id="tax" value="{{taxes}}" readonly/>
         </div>
         <div class="_column total" id="totalCtr">
           <div class="cart-totals-key">Total</div>
-          <input class="cart-totals-value" id="grant_total" value="0.00" readonly/>
+          <input class="cart-totals-value" id="grant_total" value="{{grant_total}}" readonly/>
         </div>
         <div class="_column checkout">
           <button class="_btn checkout-btn entypo-forward">Checkout</button>
