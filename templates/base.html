@@ -241,41 +241,6 @@
 
   <script src="{% static 'js/sweetalert2.min.js' %}"></script>
 
-  <script>
-
-$("a.ajax").on('click', function(e){
-        e.preventDefault();
-        var $this = $(this)
-
-        var url = $this.attr('href')
-        var method = 'GET'
-
-        $.ajax({
-            type : method,
-            url : url,
-            processData : false,
-            contentType : false,
-            cache : false,
-
-            success : function(data){
-              cart_products_list = "{{cart_products_list}}"
-              a = [1,2,3]
-                console.log("ajax");
-                let html_place = ""
-                cart_products_list.map(cart_product_list => {
-                  console.log(cart_product_list);
-                });
-            },
-
-            failure: function(data) { 
-              alert('Got an error dude');
-            },
-        })
-
-
-    })
-
-  </script>
 </body>
 
 </html>
