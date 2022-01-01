@@ -15,7 +15,11 @@ def product(request):
 
 def cart(request):
     cart_products = Cart.objects.all()
+    cart_products_list = list(Cart.objects.all().values())
     sub_total = 0 
+    taxes = sub_total * 6/100
+    shipping = sub_total * 2/100
+    grant_total = sub_total + taxes + shipping
 
     for cart_product in cart_products:
         cart_product.product_total = cart_product.product_price * cart_product.product_count 
@@ -31,7 +35,8 @@ def cart(request):
         "sub_total" : sub_total,
         "taxes" : taxes,
         "shipping" : shipping,
-        "grant_total" : grant_total
+        "grant_total" : grant_total,
+        "cart_products_list" : cart_products_list
     }
 
     return render(request, 'cart.html', context=context)
