@@ -46,43 +46,9 @@ $(document).ready(function(){
         })
     })
 
-    // $("a.ajax").on('click', function(e){
-    //     e.preventDefault();
-    //     var $this = $(this)
-    //     console.log("jshgfhj");
+    count = parseInt(document.getElementById("count").value)
+    console.log(count);
 
-    //     var url = $this.attr('href')
-    //     var method = 'GET'
-
-    //     $.ajax({
-    //         type : method,
-    //         url : url,
-    //         dataType : "json",
-    //         processData : false,
-    //         contentType : false,
-    //         cache : false,
-
-    //         success : function(data){
-    //             console.log("ajax");
-    //             let html_place = ""
-    //             response.data.forEach(top =>{
-    //                 html_place += `<li>
-    //                 <a href="#">
-    //                     <img
-    //                         class="rest"
-    //                         src="${top.image}"
-    //                         alt="Image"
-    //                     />
-    //                     <span>${top.name}</span>
-    //                 </a>
-    //             </li>`
-    //             });
-    //             $("ul").html(html_place)
-    //         },
-    //     })
-
-
-    // })
 
 })
 
