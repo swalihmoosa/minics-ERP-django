@@ -8,7 +8,6 @@ from user.models import Customer
 from web.forms import SubscribeForm
 from web.models import Subscribe
 
-
 def index(request):
     products = ProductItem.objects.all()
     customers = Customer.objects.all()
