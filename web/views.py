@@ -1,7 +1,7 @@
 import json
 
 from django.http.response import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from product.models import ProductItem
 from user.models import Customer
@@ -9,21 +9,24 @@ from web.forms import SubscribeForm
 from web.models import Subscribe
 
 def index(request):
-    products = ProductItem.objects.all()
-    customers = Customer.objects.all()
-    carousel_products = ProductItem.objects.all()[:1]
-    carousel_customers = Customer.objects.all()[:1]
-    subscribe_form = SubscribeForm()
+    if "username" in request.session:
+        products = ProductItem.objects.all()
+        customers = Customer.objects.all()
+        carousel_products = ProductItem.objects.all()[:1]
+        carousel_customers = Customer.objects.all()[:1]
+        subscribe_form = SubscribeForm()
 
-    context = {
-        "products" : products,
-        "customers" : customers,
-        "carousel_products" : carousel_products,
-        "carousel_customers" : carousel_customers,
-        "subscribe_form" : subscribe_form
-    }
-    
-    return render(request, 'index.html', context=context)
+        context = {
+            "products" : products,
+            "customers" : customers,
+            "carousel_products" : carousel_products,
+            "carousel_customers" : carousel_customers,
+            "subscribe_form" : subscribe_form
+        }
+        
+        return render(request, 'index.html', context=context)
+    else:
+        return redirect('web:user_login')
 
 
 def about(request):
