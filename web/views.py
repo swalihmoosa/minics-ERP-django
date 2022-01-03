@@ -30,46 +30,54 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'about.html')
+    if "username" in request.session:
+        return render(request, 'about.html')
+    return redirect('web:user_login')
 
 
 def why(request):
-    return render(request, 'why.html')
+    if "username" in request.session:
+        return render(request, 'why.html')
+    return redirect('web:user_login')
 
 
 def testimonial(request):
-    customers = Customer.objects.all()
+    if "username" in request.session:
+        customers = Customer.objects.all()
 
-    context = {
-        "customers" : customers
-    }
+        context = {
+            "customers" : customers
+        }
 
-    return render(request, 'testimonial.html', context=context)
+        return render(request, 'testimonial.html', context=context)
+    return redirect('web:user_login')
 
 
 def subscribe(request):
-    subscribe_form = SubscribeForm(request.POST)
+    if "username" in request.session:
+        subscribe_form = SubscribeForm(request.POST)
 
-    if subscribe_form.is_valid():
-        if not Subscribe.objects.filter(email=request.POST.get('email')).exists():
-            subscribe_form.save()
+        if subscribe_form.is_valid():
+            if not Subscribe.objects.filter(email=request.POST.get('email')).exists():
+                subscribe_form.save()
 
-            response_data = {
-                "status" : "success",
-                "title" : "Successfully Registered",
-                "message" : "You are Subscribed to the News Letter"
-            }
+                response_data = {
+                    "status" : "success",
+                    "title" : "Successfully Registered",
+                    "message" : "You are Subscribed to the News Letter"
+                }
+            else:
+                response_data = {
+                    "status" : "error",
+                    "title" : "Already Registered",
+                    "message" : "You are Already Subscribed to the News Letter,no need to Subscribe again"
+                }
         else:
             response_data = {
-                "status" : "error",
-                "title" : "Already Registered",
-                "message" : "You are Already Subscribed to the News Letter,no need to Subscribe again"
-            }
-    else:
-        response_data = {
-                "status" : "error",
-                "title" : "Your Form is Not Valid",
-                "message" : "Your Form is Not Valid,Try again"
-    }
+                    "status" : "error",
+                    "title" : "Your Form is Not Valid",
+                    "message" : "Your Form is Not Valid,Try again"
+        }
 
-    return HttpResponse(json.dumps(response_data),content_type="application/javascript")
+        return HttpResponse(json.dumps(response_data),content_type="application/javascript")
+    return redirect('web:user_login')

@@ -11,26 +11,13 @@ def user_login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             request.session['username'] = username
-            return redirect('/')
+            return redirect('web:index')
 
     if "username" in request.session:
-        return redirect('/')
+        return redirect('web:index')
     return render(request, 'login.html')
-
-    # authencation using django
-    # if request.method == 'POST':
-    #     username = request.POST.get("username")
-    #     password = request.POST.get("password")
-    #     user = authenticate(username=username, password=password)
-    #     if user is not None:
-    #         login(request, user)
-    #         return redirect('/')
-            
-    # if request.user.is_authenticated:
-    #     return redirect('/')
-    # return render(request, 'login.html')
 
 
 def user_logout(request):
-    logout(request)
-    return redirect('/')
+    request.session.flush()
+    return redirect('web:user_login')
