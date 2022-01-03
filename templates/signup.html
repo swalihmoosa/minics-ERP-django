@@ -19,34 +19,38 @@
 
 <body>
 <div class="login">
-  <h2 class="active"> sign in </h2>
+  <h2 class="nonactive"> sign in </h2>
 
-  <h2 class="nonactive"> sign up </h2>
+  <h2 class="active"> sign up </h2>
   <form action="{% url 'web:user_login' %}" method="post">
       {% csrf_token %}
 
     <input type="text" class="text" name="username">
-     <span>username</span>
+     <span>Username</span>
 
     <br>
     
     <br>
 
     <input type="password" class="text" name="password">
-    <span>password</span>
+    <span>Password</span>
     <br>
 
-    <input type="checkbox" id="checkbox-1-1" class="custom-checkbox" name="keep_signin" />
-    <label for="checkbox-1-1">Keep me Signed in</label>
+    <input type="password" class="text" name="confirm_password">
+    <span>Confirm Password</span>
+    <br>
+
+    <input type="password" class="text" name="email">
+    <span>Email</span>
+    <br>
     
     <button class="signin">
-      Sign In
+      Sign Up
     </button>
 
 
     <hr>
 
-    <a href="#">Forgot Password?</a>
   </form>
 
 </div>
