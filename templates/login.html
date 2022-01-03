@@ -22,9 +22,8 @@
   <h2 class="active"> sign in </h2>
 
   <h2 class="nonactive"> sign up </h2>
-  <form>
-   
-    
+  <form action="{% url 'web:user_login' %}" method="post">
+      {% csrf_token %}
 
     <input type="text" class="text" name="username">
      <span>username</span>
