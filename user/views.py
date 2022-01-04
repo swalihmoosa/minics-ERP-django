@@ -1,3 +1,4 @@
+from json import dumps
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate
 
@@ -32,8 +33,23 @@ def user_signup(request):
     if user_form.is_valid():
         user_form.save()
 
+        response_data = {
+            "status" : "success",
+            "title" : "Successfully Added",
+            "message" : "You added a new product"
+        }
+        return redirect('web:user_login')
+    else:
+        response_data = {
+            "status" : "error",
+            "title" : "An error Occured",
+            "message" : "You can not add the product due to some Error"
+        }
+
+    dataJSON = dumps(response_data)
     context = {
-        "form" : form
+        "form" : form,
+        "response_data" : dataJSON
     }
 
     return render(request, 'signup.html', context=context)
