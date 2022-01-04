@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate
 
 from user.form import CustomUserForm
+from user.models import CustomUser
 
 
 def user_login(request):
@@ -40,13 +41,27 @@ def add_signup_user(request):
     form = CustomUserForm(request.POST)
 
     if form.is_valid():
-        form.save()
+        if not CustomUser.objects.filter(email=request.POST.get('email')).exists():
+            if request.POST.get('password')==request.POST.get('confirm_password'):
+                form.save()
 
-        response_data = {
-            "status" : "success",
-            "title" : "Successfully Registered",
-            "message" : "You are successfully Created and Account"
-        }
+                response_data = {
+                    "status" : "success",
+                    "title" : "Successfully Registered",
+                    "message" : "You are successfully Created and Account"
+                }
+            else:
+                response_data = {
+                        "status" : "error",
+                        "title" : "Password Error",
+                        "message" : "Password Donot Match...! Check and try again"
+                    }
+        else:
+            response_data = {
+                "status" : "error",
+                "title" : "You are Already Registered",
+                "message" : "Email already exists..! try using another email"
+            }
     else:
         response_data = {
             "status" : "error",

@@ -25,6 +25,8 @@ $(document).ready(function(){
                     icon: status,
                     title: title,
                     text : text
+                }).then(function(){
+                    window.location = '/user_login'
                 })
                   
                 if (status == "success"){
