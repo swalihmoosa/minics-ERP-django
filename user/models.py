@@ -22,3 +22,16 @@ class Testimonial(models.Model):
 
     class Meta:
         ordering = ["id"]
+
+
+class CustomUser(models.Model):
+    username = models.CharField(max_length=55)
+    email = models.EmailField(max_length=50)
+    password = models.CharField(max_length=50)
+    confirm_password = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        ordering = ['id']

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from user.models import Customer, Testimonial
+from user.models import CustomUser, Customer, Testimonial
 
 
 class CustomerAdmin(admin.ModelAdmin):
@@ -10,3 +10,9 @@ admin.site.register(Customer, CustomerAdmin)
 
 
 admin.site.register(Testimonial)
+
+
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ['username', 'email', 'password', 'confirm_password']
+
+admin.site.register(CustomUser, CustomUserAdmin)

@@ -7,12 +7,9 @@ def user_login(request):
     if request.method == 'POST':
         username = request.POST.get("username")
         password = request.POST.get("password")
-        keep_signin = request.POST.get("keep_signin")
         user = authenticate(username=username, password=password)
         if user is not None:
             request.session['username'] = username
-            if keep_signin == "on":
-                SESSION_EXPIRE_SECONDS = 60
             return redirect('web:index')
             
 
