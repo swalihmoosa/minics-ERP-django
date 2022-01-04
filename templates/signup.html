@@ -24,23 +24,23 @@
 
     <a href="{% url 'web:user_signup' %}" class="active log"> sign up </a>
 </div>
-  <form action="{% url 'web:user_login' %}" method="post">
+  <form action="{% url 'web:user_signup' %}" method="post">
       {% csrf_token %}
 
-    <input type="text" class="text" name="username">
+    {{form.username}}
      <span>Username</span>
 
     <br>
     
-    <input type="password" class="text" name="email">
+    {{form.email}}
     <span>Email</span>
     <br>
      
-    <input type="password" class="text" name="password">
+    {{form.password}}
     <span>Password</span>
     <br>
 
-    <input type="password" class="text" name="confirm_password">
+    {{form.confirm_password}}
     <span>Confirm Password</span>
     <br>
 

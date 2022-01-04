@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate
 
+from user.form import CustomUserForm
+
 
 def user_login(request):
     # authencation using session
@@ -24,4 +26,14 @@ def user_logout(request):
 
 
 def user_signup(request):
-    return render(request, 'signup.html')
+    form = CustomUserForm()
+    user_form = CustomUserForm(request.POST)
+
+    if user_form.is_valid():
+        user_form.save()
+
+    context = {
+        "form" : form
+    }
+
+    return render(request, 'signup.html', context=context)
