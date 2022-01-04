@@ -24,11 +24,11 @@
 
     <a href="{% url 'web:user_signup' %}" class="active log"> sign up </a>
 </div>
-  <form action="{% url 'web:user_signup' %}" method="post">
+  <form action="{% url 'web:add_signup_user' %}" method="post" class="subscribe">
       {% csrf_token %}
 
     {{form.username}}
-     <span>Username</span>
+     <span class="span">Username</span>
 
     <br>
     
@@ -55,5 +55,9 @@
   </form>
 
 </div>
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/sweetalert2.min.js' %}"></script>
+
 </body>
 </html>

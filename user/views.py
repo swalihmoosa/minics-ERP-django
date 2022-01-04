@@ -1,4 +1,5 @@
-from json import dumps
+import json
+from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate
 
@@ -6,7 +7,6 @@ from user.form import CustomUserForm
 
 
 def user_login(request):
-    # authencation using session
     if request.method == 'POST':
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -28,28 +28,30 @@ def user_logout(request):
 
 def user_signup(request):
     form = CustomUserForm()
-    user_form = CustomUserForm(request.POST)
 
-    if user_form.is_valid():
-        user_form.save()
+    context = {
+        "form" : form,
+    }
+
+    return render(request, 'signup.html', context=context)
+
+
+def add_signup_user(request):
+    form = CustomUserForm(request.POST)
+
+    if form.is_valid():
+        form.save()
 
         response_data = {
             "status" : "success",
-            "title" : "Successfully Added",
-            "message" : "You added a new product"
+            "title" : "Successfully Registered",
+            "message" : "You are successfully Created and Account"
         }
-        return redirect('web:user_login')
     else:
         response_data = {
             "status" : "error",
             "title" : "An error Occured",
-            "message" : "You can not add the product due to some Error"
+            "message" : "You can not signup due to some Error"
         }
 
-    dataJSON = dumps(response_data)
-    context = {
-        "form" : form,
-        "response_data" : dataJSON
-    }
-
-    return render(request, 'signup.html', context=context)
+    return HttpResponse(json.dumps(response_data),content_type="application/javascript")
