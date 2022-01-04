@@ -24,7 +24,7 @@ def user_login(request):
 
 
 def user_logout(request):
-    request.session.flush()
+    del request.session['username']
     return redirect('web:user_login')
 
 

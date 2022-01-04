@@ -24,7 +24,7 @@
 
     <a href="{% url 'web:user_signup' %}" class="active log"> sign up </a>
 </div>
-  <form action="{% url 'web:add_signup_user' %}" method="post" class="subscribe">
+  <form action="{% url 'web:add_signup_user' %}" method="post" class="signup">
       {% csrf_token %}
 
     {{form.username}}
