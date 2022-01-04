@@ -19,9 +19,11 @@
 
 <body>
 <div class="login">
-  <h2 class="nonactive"> sign in </h2>
+  <div class="log">
+    <a href="{% url 'web:user_login' %}" class="nonactive log"> sign in </a>
 
-  <h2 class="active"> sign up </h2>
+    <a href="{% url 'web:user_signup' %}" class="active log"> sign up </a>
+</div>
   <form action="{% url 'web:user_login' %}" method="post">
       {% csrf_token %}
 

@@ -24,6 +24,7 @@ form {
 
 .active {
   border-bottom: 2px solid #1161ed;
+  color: #1161ed;
 }
 
 .nonactive {
@@ -169,4 +170,21 @@ a {
   position: relative;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.2);
+}
+div.log{
+  display: flex;
+  justify-content: space-between;
+}
+div.log a.log{
+  padding-left: 12px;
+  font-size: 22px;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  letter-spacing: 2px;
+  display: inline-block;
+  font-weight: 100;
+  margin-left: 20px;
+  display: block;
+  width: 45%;
+  top: 0;
 }

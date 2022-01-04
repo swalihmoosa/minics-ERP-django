@@ -24,3 +24,7 @@ def user_login(request):
 def user_logout(request):
     request.session.flush()
     return redirect('web:user_login')
+
+
+def user_signup(request):
+    return render(request, 'signup.html')
