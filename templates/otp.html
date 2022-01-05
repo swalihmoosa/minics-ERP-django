@@ -24,7 +24,7 @@
 
     <a href="{% url 'web:user_signup' %}" class="active log"> sign up </a>
 </div>
-  <form action="{% url 'web:add_signup_user' %}" method="post" class="signup">
+  <form action="{% url 'web:add_signup_user' %}" method="post" class="signup" >
       {% csrf_token %}
 
       <input type="numer" placeholder="Enter the OTP sent to your Mobile" class="text" name="otp" />

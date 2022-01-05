@@ -21,18 +21,6 @@ def user_login(request):
         user = CustomUser.objects.filter(username=username,password=password)
         if user:
             request.session['username'] = username
-                        
-            account_sid = 'ACba282cb048caedd49188eee2e085ad31'
-            auth_token = '9ac7f23e3fd00fdce531f9b23f6a8fce'
-            client = Client(account_sid, auth_token)
-            message = client.messages \
-                            .create(
-                                body="Join Earth's mightiest heroes. Like Kevin Bacon.",
-                                from_='+12163501362',
-                                to='+918129133008'
-                            )
-
-            print(message.sid)
 
             return redirect('web:index')
             
@@ -100,4 +88,16 @@ def add_signup_user(request):
 
 
 def verify_otp(request):
+    account_sid = 'ACba282cb048caedd49188eee2e085ad31'
+    auth_token = '9ac7f23e3fd00fdce531f9b23f6a8fce'
+    client = Client(account_sid, auth_token)
+    message = client.messages \
+                    .create(
+                        body="Join Earth's mightiest heroes. Like Kevin Bacon.",
+                        from_='+12163501362',
+                        to='+918129133008'
+                    )
+
+    print(message.sid)
+
     return render(request, 'otp.html')
