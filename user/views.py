@@ -1,4 +1,8 @@
 import json
+
+from django.core.mail import send_mail
+from minics.settings import EMAIL_HOST_USER
+
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate
@@ -44,13 +48,19 @@ def add_signup_user(request):
     if form.is_valid():
         if not CustomUser.objects.filter(email=request.POST.get('email')).exists():
             if request.POST.get('password')==request.POST.get('confirm_password'):
-                form.save()
 
                 response_data = {
                     "status" : "success",
                     "title" : "Successfully Registered",
                     "message" : "You are successfully Created and Account"
                 }
+
+                subject = "MINICS WEBSITE"
+                message = "You are successfully Created and Account"
+                reciever = request.POST.get('email')
+                send_mail(subject, message, EMAIL_HOST_USER, [reciever], fail_silently=False)
+                form.save()
+
             else:
                 response_data = {
                         "status" : "error",

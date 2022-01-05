@@ -69,11 +69,12 @@ def subscribe(request):
                     "title" : "Successfully Registered",
                     "message" : "You are Subscribed to the News Letter"
                 }
-                
+
                 subject = "MINICS WEBSITE"
                 message = "You are Subscribed to the News Letter"
                 reciever = request.POST.get('email')
                 send_mail(subject, message, EMAIL_HOST_USER, [reciever], fail_silently=False)
+                
             else:
                 response_data = {
                     "status" : "error",
