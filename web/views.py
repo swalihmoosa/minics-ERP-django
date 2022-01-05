@@ -3,6 +3,9 @@ import json
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 
+from minics.settings import EMAIL_HOST_USER
+from django.core.mail import send_mail
+
 from product.models import ProductItem
 from user.models import Customer
 from web.forms import SubscribeForm
@@ -66,6 +69,11 @@ def subscribe(request):
                     "title" : "Successfully Registered",
                     "message" : "You are Subscribed to the News Letter"
                 }
+                
+                subject = "MINICS WEBSITE"
+                message = "You are Subscribed to the News Letter"
+                reciever = request.POST.get('email')
+                send_mail(subject, message, EMAIL_HOST_USER, [reciever], fail_silently=False)
             else:
                 response_data = {
                     "status" : "error",
