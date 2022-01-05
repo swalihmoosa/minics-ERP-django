@@ -19,7 +19,6 @@ def user_login(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
         user = CustomUser.objects.filter(username=username,password=password)
-        print("################################################################",user)
         if user:
             request.session['username'] = username
                         
