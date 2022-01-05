@@ -2,7 +2,7 @@ from django.urls import path
 from product.views import add_to_cart, product
 from web.views import index, about, subscribe, why, testimonial
 from product.views import cart, remove, add_count, minus_count
-from user.views import user_login, user_logout, user_signup, add_signup_user
+from user.views import user_login, user_logout, user_signup, add_signup_user, verify_otp
 
 
 app_name = 'web'
@@ -22,6 +22,7 @@ urlpatterns = [
     path('user_login/', user_login, name="user_login"),
     path('user_logout', user_logout, name="user_logout"),
     path('user_signup', user_signup, name="user_signup"),
-    path('add_signup_user', add_signup_user, name="add_signup_user")
+    path('add_signup_user', add_signup_user, name="add_signup_user"),
+    path('verify_otp', verify_otp, name="verify_otp")
 
 ]

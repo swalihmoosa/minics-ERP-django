@@ -74,6 +74,7 @@ def add_signup_user(request):
                 message = "You are successfully Created and Account"
                 reciever = request.POST.get('email')
                 send_mail(subject, message, EMAIL_HOST_USER, [reciever], fail_silently=False)
+                
                 form.save()
 
             else:
@@ -96,3 +97,7 @@ def add_signup_user(request):
         }
 
     return HttpResponse(json.dumps(response_data),content_type="application/javascript")
+
+
+def verify_otp(request):
+    return render(request, 'otp.html')

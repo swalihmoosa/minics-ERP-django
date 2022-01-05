@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import fields, forms
 from django.forms.models import ModelForm
-from django.forms.widgets import EmailInput, PasswordInput, TextInput
+from django.forms.widgets import EmailInput, NumberInput, PasswordInput, TextInput
 
 from user.models import CustomUser
 
@@ -19,6 +19,10 @@ class CustomUserForm(ModelForm):
             "email" : EmailInput(attrs={
                 "class" : "text",
                 "placeholder" : "Enter your Email"
+            }),
+            "mobile" : NumberInput(attrs={
+                "class" : "text",
+                "placeholder" : "Enter your Mobile Number"
             }),
             "password" : PasswordInput(attrs={
                 "class" : "text",

@@ -27,6 +27,7 @@ class Testimonial(models.Model):
 class CustomUser(models.Model):
     username = models.CharField(max_length=55)
     email = models.EmailField(max_length=50)
+    mobile = models.IntegerField(max_length=13,default=91)
     password = models.CharField(max_length=50)
     confirm_password = models.CharField(max_length=50)
 

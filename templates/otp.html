@@ -27,30 +27,13 @@
   <form action="{% url 'web:add_signup_user' %}" method="post" class="signup">
       {% csrf_token %}
 
-    {{form.username}}
-     <span class="span">Username</span>
+      <input type="numer" placeholder="Enter the OTP sent to your Mobile" class="text" name="otp" />
+
+     <span class="span">Enter OTP</span>
 
     <br>
-    
-    {{form.email}}
-    <span>Email</span>
-    <br>
-
-    {{form.mobile}}
-    <span>Mobile</span>
-    <br>
-     
-    {{form.password}}
-    <span>Password</span>
-    <br>
-
-    {{form.confirm_password}}
-    <span>Confirm Password</span>
-    <br>
-
-    
     <button class="signin">
-      Sign Up
+      Submit
     </button>
 
 
