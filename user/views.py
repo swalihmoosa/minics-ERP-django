@@ -1,5 +1,8 @@
 import json
 
+import os
+from twilio.rest import Client
+
 from django.core.mail import send_mail
 from minics.settings import EMAIL_HOST_USER
 
@@ -19,6 +22,19 @@ def user_login(request):
         print("################################################################",user)
         if user:
             request.session['username'] = username
+                        
+            account_sid = 'ACba282cb048caedd49188eee2e085ad31'
+            auth_token = '9ac7f23e3fd00fdce531f9b23f6a8fce'
+            client = Client(account_sid, auth_token)
+            message = client.messages \
+                            .create(
+                                body="Join Earth's mightiest heroes. Like Kevin Bacon.",
+                                from_='+12163501362',
+                                to='+918129133008'
+                            )
+
+            print(message.sid)
+
             return redirect('web:index')
             
 
