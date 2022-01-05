@@ -1,4 +1,5 @@
 import json
+import random
 
 import os
 from twilio.rest import Client
@@ -88,16 +89,19 @@ def add_signup_user(request):
 
 
 def verify_otp(request):
-    account_sid = 'ACba282cb048caedd49188eee2e085ad31'
-    auth_token = '9ac7f23e3fd00fdce531f9b23f6a8fce'
-    client = Client(account_sid, auth_token)
-    message = client.messages \
-                    .create(
-                        body="Join Earth's mightiest heroes. Like Kevin Bacon.",
-                        from_='+12163501362',
-                        to='+918129133008'
-                    )
+    token = random.randint(999,9999)
+    # print("#########################################################",token)
 
-    print(message.sid)
+    # account_sid = 'ACba282cb048caedd49188eee2e085ad31'
+    # auth_token = '49d96e71ef71363190e55516b196f39c'
+    # client = Client(account_sid, auth_token)
+    # message = client.messages \
+    #                 .create(
+    #                     body="Join Earth's mightiest heroes. Like Kevin Bacon.",
+    #                     from_='+12163501362',
+    #                     to='+918129133008'
+    #                 )
+
+    # print(message.sid)
 
     return render(request, 'otp.html')
